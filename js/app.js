@@ -364,7 +364,7 @@ function liveSearch(query) {
             navSearchDropdown.replaceChildren(empty);
             navSearchDropdown.classList.remove('hidden');
         }
-    }, 350);
+    }, 300);
 }
 
 function createSearchResultItem(track, index) {
