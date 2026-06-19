@@ -145,19 +145,32 @@ function toggleFavorite(track, button) {
     if (button) button.classList.toggle('favorited', isFavorite(normalizedTrack));
 }
 
-function loadTheme() {
-    const savedTheme = localStorage.getItem('muzika-theme') || 'light';
-    isLightMode = savedTheme !== 'dark';
+function getSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
+    isLightMode = theme !== 'dark';
     document.body.classList.toggle('light-mode', isLightMode);
     setButtonIcon(themeIcon, isLightMode ? 'sun' : 'moon');
 }
 
-function toggleTheme() {
-    isLightMode = !isLightMode;
-    document.body.classList.toggle('light-mode', isLightMode);
-    localStorage.setItem('muzika-theme', isLightMode ? 'light' : 'dark');
-    setButtonIcon(themeIcon, isLightMode ? 'sun' : 'moon');
+function loadTheme() {
+    const savedTheme = localStorage.getItem('muzika-theme');
+    applyTheme(savedTheme || getSystemTheme());
 }
+
+function toggleTheme() {
+    const newTheme = isLightMode ? 'dark' : 'light';
+    localStorage.setItem('muzika-theme', newTheme);
+    applyTheme(newTheme);
+}
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    if (!localStorage.getItem('muzika-theme')) {
+        applyTheme(event.matches ? 'dark' : 'light');
+    }
+});
 
 function setSearchTerm(term) {
     searchInput.value = term;
