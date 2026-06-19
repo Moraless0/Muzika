@@ -22,15 +22,11 @@ Muzika es un pequeño explorador de música que armé con HTML, CSS y JavaScript
 
 ### Buscador
 
-![Buscador de Muzika](./.assets/screenshot-search.png)
-
-### Reproductor
-
-![Reproductor de Muzika](assets/screenshot-player.png)
+![Buscador de Muzika](./assets/buscador.png)
 
 ### Panel de artista
 
-![Panel de artista en Muzika](assets/screenshot-artist.png)
+![Panel de artista en Muzika](./assets/panel.png)
 
 ## Tecnologías
 
