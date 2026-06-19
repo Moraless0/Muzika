@@ -1,78 +1,54 @@
-# Muzika
+# Muzika 🎧
 
-**Camper:** Abdiel Morales
+Proyecto de clase hecho por **Henry Morales**.
 
-Muzika es una aplicacion web interactiva construida con HTML5, CSS3 y JavaScript puro que consume la API publica de Deezer para explorar musica, buscar canciones, ver detalles, reproducir previews y guardar favoritos.
+Muzika es un pequeño explorador de música que armé con HTML, CSS y JavaScript puro. Se conecta a la API pública de Deezer para buscar canciones, escuchar previews de 30 segundos y guardar favoritos. No usa frameworks ni librerías externas, todo está hecho desde cero.
 
-## Descripcion
+## ¿Qué hace?
 
-La aplicacion permite descubrir canciones reales desde Deezer sin usar frameworks ni librerias externas de JavaScript. El usuario puede consultar el top global, buscar artistas o canciones, abrir una ficha de detalle, escuchar previews de 30 segundos, revisar informacion del artista y administrar favoritos.
+- Muestra el top global de canciones de Deezer.
+- Permite buscar por artista, canción o álbum.
+- Abre una ficha con la portada, duración y enlace a la canción.
+- Reproduce previews de 30 segundos.
+- Guarda favoritos en el navegador usando `localStorage`.
+- Muestra información del artista, álbumes destacados y canciones populares.
+- Tiene tema claro/oscuro y funciona en el celular.
 
-## API utilizada
+## Cómo se ve
 
-- **Nombre:** Deezer API publica
-- **URL base:** `https://api.deezer.com`
-- **Documentacion:** https://developers.deezer.com/api
-- **Autenticacion:** No requiere API key para consultas basicas.
-- **Endpoints usados:**
-  - `/chart/0/tracks`
-  - `/search`
-  - `/track/{id}`
-  - `/artist/{id}`
-  - `/artist/{id}/albums`
-  - `/artist/{id}/top`
+*(Aquí van las capturas que me pases)*
 
-> Nota: Deezer no siempre habilita CORS directo en navegadores, por eso el proyecto usa proxys publicos de respaldo en `js/api.js`.
+### Vista de inicio
 
-## Funcionalidades principales
+![Vista de inicio de Muzika](assets/screenshot-home.png)
 
-- Listado de mas de 10 canciones obtenidas desde Deezer.
-- Busqueda por artista, cancion, album o genero.
-- Detalle de cancion con portada, artista, album, duracion y enlace a Deezer.
-- Reproductor de preview de 30 segundos.
-- Favoritos guardados en `localStorage`.
-- Indicadores de carga con skeletons.
-- Manejo de errores con mensajes visibles para el usuario.
-- Panel de informacion del artista usando datos disponibles de Deezer.
-- Historial de busquedas recientes.
-- Radio automatica por artista.
-- Filtro de canciones con preview.
-- Cola de reproduccion visible.
-- Panel de atajos de teclado.
-- Vista compacta/lista.
-- Exportacion de favoritos como JSON.
-- Compartir canciones con Web Share API o copia al portapapeles.
-- Indicador de fuente de datos Deezer.
+### Buscador
 
-## Captura de pantalla
+![Buscador de Muzika](assets/screenshot-search.png)
 
-Agrega una captura de la aplicacion funcionando en la siguiente ruta antes de entregar:
+### Reproductor
 
-```text
-assets/screenshot.png
-```
+![Reproductor de Muzika](assets/screenshot-player.png)
 
-Ejemplo en README:
+### Panel de artista
 
-```markdown
-![Captura de Muzika](assets/screenshot.png)
-```
+![Panel de artista en Muzika](assets/screenshot-artist.png)
 
-## Tecnologias
+## Tecnologías
 
 - HTML5
 - CSS3
-- JavaScript ES6+
-- `fetch()` con `async/await`
-- `localStorage`
-- Google Fonts
+- JavaScript vanilla
+- API pública de Deezer
+- `localStorage` para favoritos
 
-## Instrucciones para ejecutar localmente
+## Cómo ejecutarlo
 
-1. Clona o descarga este repositorio.
+1. Clona el repo.
 2. Abre `index.html` en el navegador.
-3. No requiere instalacion de dependencias ni servidor local.
-4. Asegurate de tener conexion a internet para consultar Deezer.
+3. Listo, no necesita instalar nada.
+
+> Necesitas conexión a internet para que funcione la búsqueda y el top global.
 
 ## Estructura del proyecto
 
@@ -81,27 +57,26 @@ Ejemplo en README:
 ├── assets/
 │   ├── muzika.ico
 │   ├── muzika.jpg
-│   └── screenshot.png
+│   └── screenshot-*.png
 ├── css/
-│   └── styles.css
+│   ├── variables.css
+│   ├── reset.css
+│   ├── styles.css
+│   └── responsive.css
 ├── js/
 │   ├── api.js
+│   ├── utils.js
 │   └── app.js
 ├── index.html
 └── README.md
 ```
 
-## Buenas practicas aplicadas
+## Notas
 
-- Separacion de responsabilidades entre `api.js` y `app.js`.
-- Peticiones HTTP con `fetch()` y `async/await`.
-- Manejo de errores con `try/catch`.
-- Renderizado del DOM con `createElement`, `textContent`, `setAttribute`, `appendChild` y `replaceChildren`.
-- No se usa `innerHTML` en el codigo JavaScript propio.
-- Persistencia local con `localStorage`.
-- Diseno responsive y accesible.
-- No se usan frameworks como React, Vue, Angular ni jQuery.
+- Deezer no siempre habilita CORS directo en navegadores, por eso el proyecto usa proxies de respaldo en `js/api.js`.
+- Algunos datos del artista (biografía, país, género) no vienen en los endpoints públicos, por eso aparecen como no disponibles.
+- El diseño está inspirado en interfaces limpias tipo Apple, con esquinas redondeadas, blur y un modo oscuro/claro.
 
-## Limitaciones de la API
+---
 
-Deezer proporciona datos como nombre del artista, imagen, seguidores aproximados, albums, canciones populares y enlaces externos. No proporciona biografia, pais de origen, genero musical o fecha de inicio de carrera en los endpoints publicos usados; por eso esos campos se muestran como no disponibles dentro del panel del artista.
+Hecho con paciencia, café y muchas pruebas en el navegador.
