@@ -65,8 +65,20 @@
 }
 
 .light-mode .player-bar {
-    background: rgba(255, 255, 255, .9);
-    box-shadow: 0 18px 54px rgba(95, 78, 145, .2);
+    background: rgba(235, 233, 245, .96);
+    box-shadow: 0 18px 54px rgba(95, 78, 145, .22);
+}
+
+.light-mode .player-progress input[type="range"] {
+    background: rgba(200, 198, 212, .75);
+}
+
+.light-mode .player-volume input[type="range"] {
+    background: rgba(190, 188, 202, .8);
+}
+
+.light-mode .control-btn {
+    background: rgba(225, 223, 235, .85);
 }
 
 .light-mode .modal-close {
