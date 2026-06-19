@@ -14,6 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="light-mode">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('muzika-theme');
+            const theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.body.classList.toggle('light-mode', theme !== 'dark');
+        })();
+    </script>
     <div class="background-orb orb-one"></div>
     <div class="background-orb orb-two"></div>
     <div class="background-grid"></div>
