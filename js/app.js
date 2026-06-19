@@ -843,7 +843,7 @@ document.addEventListener('keydown', event => {
         return;
     }
     if (isTyping()) return;
-    if (event.key === '?' && shortcutsPanel) {
+    if (event.key === '/' && shortcutsPanel) {
         event.preventDefault();
         toggleShortcutsPanel();
     }
