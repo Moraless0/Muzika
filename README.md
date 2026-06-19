@@ -16,15 +16,13 @@ Muzika es un pequeño explorador de música que armé con HTML, CSS y JavaScript
 
 ## Cómo se ve
 
-*(Aquí van las capturas que me pases)*
-
 ### Vista de inicio
 
-![Vista de inicio de Muzika](assets/screenshot-home.png)
+![Vista de inicio de Muzika](./assets/Inicio.png)
 
 ### Buscador
 
-![Buscador de Muzika](assets/screenshot-search.png)
+![Buscador de Muzika](./.assets/screenshot-search.png)
 
 ### Reproductor
 
