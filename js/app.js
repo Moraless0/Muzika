@@ -52,8 +52,11 @@ const closeArtistPanelBtn = document.getElementById('closeArtistPanel');
 const previewFilterBtn = document.getElementById('previewFilterBtn');
 const listViewBtn = document.getElementById('listViewBtn');
 const exportFavoritesBtn = document.getElementById('exportFavoritesBtn');
+const vinylCover = document.querySelector('.vinyl-cover');
 
 let currentTracks = [];
+let playedCovers = [];
+let vinylCoverInterval = null;
 let currentTrackIndex = -1;
 let isPlaying = false;
 let isLightMode = true;
@@ -303,6 +306,10 @@ function renderTracks(tracks, title) {
     tracksGrid.classList.toggle('list-view', isListView);
     setState();
     renderQueue();
+
+    if (vinylCover && !playedCovers.length) {
+        startVinylCoverRotation();
+    }
 }
 
 async function loadTrendingTracks() {
@@ -459,6 +466,39 @@ function updatePlayingCard(trackId) {
     renderQueue();
 }
 
+function getVinylCovers() {
+    const covers = playedCovers.length ? playedCovers : currentTracks.map(track => getArtworkUrl(track));
+    return covers.length ? covers : [getArtworkUrl(currentPlayerTrack)];
+}
+
+function rotateVinylCover() {
+    if (!vinylCover) return;
+    const covers = getVinylCovers();
+    if (!covers.length) return;
+    const currentUrl = vinylCover.src;
+    const available = covers.filter(url => url !== currentUrl);
+    const nextUrl = available.length ? available[Math.floor(Math.random() * available.length)] : covers[0];
+    vinylCover.style.opacity = '0';
+    setTimeout(() => {
+        vinylCover.src = nextUrl || 'assets/muzika.jpg';
+        vinylCover.style.opacity = '1';
+    }, 250);
+}
+
+function startVinylCoverRotation() {
+    if (vinylCoverInterval) clearInterval(vinylCoverInterval);
+    rotateVinylCover();
+    vinylCoverInterval = setInterval(rotateVinylCover, 5000);
+}
+
+function addPlayedCover(track) {
+    const url = getArtworkUrl(track);
+    if (!url) return;
+    playedCovers = playedCovers.filter(item => item !== url);
+    playedCovers.unshift(url);
+    if (playedCovers.length > 12) playedCovers.pop();
+}
+
 function playPreview(track, index = 0) {
     const normalizedTrack = normalizeTrack(track);
     const previewUrl = getTrackPreviewUrl(normalizedTrack);
@@ -470,6 +510,8 @@ function playPreview(track, index = 0) {
 
     currentTrackIndex = index;
     currentPlayerTrack = normalizedTrack;
+    addPlayedCover(normalizedTrack);
+    startVinylCoverRotation();
     updatePlayingCard(normalizedTrack.id);
     playerImage.src = getArtworkUrl(normalizedTrack);
     playerTitle.textContent = normalizedTrack.title;
