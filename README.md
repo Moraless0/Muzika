@@ -49,9 +49,11 @@ Muzika es un pequeño explorador de música que armé con HTML, CSS y JavaScript
 ```text
 .
 ├── assets/
+│   ├── Inicio.png
+│   ├── buscador.png
+│   ├── panel.png
 │   ├── muzika.ico
-│   ├── muzika.jpg
-│   └── screenshot-*.png
+│   └── muzika.jpg
 ├── css/
 │   ├── variables.css
 │   ├── reset.css
@@ -74,3 +76,7 @@ Muzika es un pequeño explorador de música que armé con HTML, CSS y JavaScript
 ---
 
 Hecho con paciencia, café y muchas pruebas en el navegador.
+
+## Autor
+
+**Henry Morales**
