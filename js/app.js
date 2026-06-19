@@ -96,7 +96,7 @@ function saveSearchTerm(term) {
 
 function loadVolume() {
     const savedVolume = localStorage.getItem('muzika-volume');
-    const volume = savedVolume !== null ? parseInt(savedVolume, 10) : 50;
+    const volume = savedVolume !== null ? parseInt(savedVolume, 10) : 60;
     volumeBar.value = volume;
     audioPlayer.volume = volume / 100;
 }
