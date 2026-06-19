@@ -666,6 +666,24 @@ body:not(.light-mode) .featured-player-card {
     animation: spin 12s linear infinite;
 }
 
+.vinyl-cover {
+    position: absolute;
+    width: 172px;
+    height: 172px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 2;
+    box-shadow: 0 8px 24px rgba(0,0,0,.35);
+    transition: opacity 0.5s ease;
+}
+
+body.light-mode .vinyl-cover {
+    box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+
 body.light-mode .vinyl-disc {
     background:
         conic-gradient(from 225deg, rgba(0,0,0,.06), transparent 25%, rgba(0,0,0,.04) 50%, transparent 75%, rgba(0,0,0,.06)),
@@ -1618,4 +1636,4 @@ kbd {
         transform: translateY(0);
     }
 }
-
+
