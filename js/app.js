@@ -191,7 +191,7 @@ function renderSkeletonCards(count = 8) {
 
 function hideAppLoader() {
     if (!appLoader) return;
-    window.setTimeout(() => appLoader.classList.add('loader-hidden'), 900);
+    window.setTimeout(() => appLoader.classList.add('loader-hidden'), 700);
 }
 
 function setState({ loading = false, error = '', empty = false } = {}) {
