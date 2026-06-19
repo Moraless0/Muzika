@@ -648,7 +648,7 @@ function renderArtistPanel(bundle) {
     radioButton.textContent = 'Iniciar radio del artista';
     radioButton.addEventListener('click', () => {
         if (!tracks.length) return;
-        renderTracks(tracks, `Radio de ${artist.name}`);
+        renderTracks(tracks, `Canciones de ${artist.name}`);
         playPreview(tracks[0], 0);
         closeArtistPanel();
     });
