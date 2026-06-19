@@ -1,0 +1,106 @@
+:root {
+    --bg: #090b16;
+    --bg-soft: #101426;
+    --panel: rgba(255, 255, 255, 0.07);
+    --panel-strong: rgba(255, 255, 255, 0.12);
+    --surface: rgba(14, 18, 34, 0.78);
+    --stroke: rgba(255, 255, 255, 0.12);
+    --text: #f7f3ff;
+    --muted: #aab0c7;
+    --pink: #ff5c9f;
+    --cyan: #6ee7f9;
+    --violet: #8f7cff;
+    --yellow: #ffd166;
+    --danger: #ff6b6b;
+    --success: #75f0b8;
+    --shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+    --radius-xl: 34px;
+    --radius-lg: 24px;
+}
+
+.light-mode {
+    --bg: #f5f1ff;
+    --bg-soft: #ffffff;
+    --panel: rgba(255, 255, 255, 0.72);
+    --panel-strong: rgba(255, 255, 255, 0.9);
+    --surface: rgba(255, 255, 255, 0.78);
+    --stroke: rgba(48, 38, 80, 0.12);
+    --text: #151526;
+    --muted: #64677e;
+    --shadow: 0 26px 80px rgba(99, 84, 145, 0.18);
+}
+
+.light-mode .background-grid {
+    background-image: linear-gradient(rgba(82, 67, 132, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(82, 67, 132, .07) 1px, transparent 1px);
+}
+
+.light-mode .nav,
+.light-mode .search-panel,
+.light-mode .mood-section,
+.light-mode .state,
+.light-mode .modal-content {
+    background: rgba(255, 255, 255, .82);
+    box-shadow: 0 18px 48px rgba(96, 78, 148, .14);
+}
+
+.light-mode .nav-search-dropdown {
+    background: rgba(255, 255, 255, .96);
+    box-shadow: 0 24px 58px rgba(88, 72, 135, .18);
+}
+
+.light-mode .skeleton-card,
+.light-mode .track-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(247, 243, 255, .72));
+    box-shadow: 0 18px 42px rgba(95, 78, 145, .12);
+}
+
+.light-mode .skeleton-cover,
+.light-mode .skeleton-line,
+.light-mode .skeleton-pill {
+    background: rgba(86, 72, 130, .1);
+}
+
+.light-mode .skeleton-card::after {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
+}
+
+.light-mode .player-bar {
+    background: rgba(255, 255, 255, .9);
+    box-shadow: 0 18px 54px rgba(95, 78, 145, .2);
+}
+
+.light-mode .modal-close {
+    background: rgba(21, 21, 38, .08);
+    color: var(--text);
+}
+
+.light-mode .compact-disc {
+    background: repeating-radial-gradient(circle, #ffffff 0 7px, #eee9ff 8px 11px), radial-gradient(circle, var(--pink) 0 8px, var(--cyan) 9px 14px, transparent 15px);
+}
+
+.light-mode .toast {
+    background: rgba(255, 255, 255, .92);
+    color: var(--text);
+    box-shadow: 0 12px 32px rgba(95, 78, 145, .2);
+}
+
+body:not(.light-mode) .app-loader {
+    background:
+        radial-gradient(circle at 50% 42%, rgba(255, 92, 159, 0.2), transparent 34%),
+        radial-gradient(circle at 52% 58%, rgba(110, 231, 249, 0.14), transparent 32%),
+        linear-gradient(180deg, #070812, #101426);
+}
+
+body:not(.light-mode) .loader-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 34px 100px rgba(0, 0, 0, 0.5);
+}
+
+body:not(.light-mode) .loader-card strong {
+    color: var(--text);
+}
+
+body:not(.light-mode) .loader-card p {
+    color: var(--muted);
+}

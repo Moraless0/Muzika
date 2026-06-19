@@ -1,0 +1,17 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Entorno
+.env
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# Temporales
+node_modules/
+dist/
+.cache/
+
