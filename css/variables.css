@@ -14,8 +14,8 @@
     --danger: #ff6b6b;
     --success: #75f0b8;
     --shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
-    --radius-xl: 34px;
-    --radius-lg: 24px;
+    --radius-xl: 36px;
+    --radius-lg: 26px;
 }
 
 .light-mode {
@@ -103,4 +103,4 @@ body:not(.light-mode) .loader-card strong {
 
 body:not(.light-mode) .loader-card p {
     color: var(--muted);
-}
+}

@@ -96,7 +96,7 @@ function saveSearchTerm(term) {
 
 function loadVolume() {
     const savedVolume = localStorage.getItem('muzika-volume');
-    const volume = savedVolume !== null ? parseInt(savedVolume, 10) : 50;
+    const volume = savedVolume !== null ? parseInt(savedVolume, 10) : 60;
     volumeBar.value = volume;
     audioPlayer.volume = volume / 100;
 }
@@ -191,7 +191,7 @@ function renderSkeletonCards(count = 8) {
 
 function hideAppLoader() {
     if (!appLoader) return;
-    window.setTimeout(() => appLoader.classList.add('loader-hidden'), 900);
+    window.setTimeout(() => appLoader.classList.add('loader-hidden'), 700);
 }
 
 function setState({ loading = false, error = '', empty = false } = {}) {
@@ -364,7 +364,7 @@ function liveSearch(query) {
             navSearchDropdown.replaceChildren(empty);
             navSearchDropdown.classList.remove('hidden');
         }
-    }, 350);
+    }, 300);
 }
 
 function createSearchResultItem(track, index) {
@@ -648,7 +648,7 @@ function renderArtistPanel(bundle) {
     radioButton.textContent = 'Iniciar radio del artista';
     radioButton.addEventListener('click', () => {
         if (!tracks.length) return;
-        renderTracks(tracks, `Radio de ${artist.name}`);
+        renderTracks(tracks, `Canciones de ${artist.name}`);
         playPreview(tracks[0], 0);
         closeArtistPanel();
     });
@@ -692,7 +692,7 @@ function exportFavorites() {
     const blob = new Blob([JSON.stringify(favorites, null, 2)], { type: 'application/json' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = 'muzika-favoritos.json';
+    link.download = 'muzika-favs.json';
     link.click();
     URL.revokeObjectURL(link.href);
 }
@@ -843,7 +843,7 @@ document.addEventListener('keydown', event => {
         return;
     }
     if (isTyping()) return;
-    if (event.key === '?' && shortcutsPanel) {
+    if (event.key === '/' && shortcutsPanel) {
         event.preventDefault();
         toggleShortcutsPanel();
     }
